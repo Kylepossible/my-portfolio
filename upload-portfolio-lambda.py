@@ -22,11 +22,12 @@ def lambda_handler(event, context):
                 obj = myzip.open(nm)
                 portfolio_bucket.upload_fileobj(obj, nm,
                 ExtraArgs={'ContentType': 'basestring'})
-            portfolio_bucket.Object(nm).Acl().put(ACL='public-read')
+                portfolio_bucket.Object(nm).Acl().put(ACL='public-read')
 
         print "Job Done!"
         topic.publish(Subject="Portfolio Deployed", Message="Portfolio deployed successfully!")
     except:
         topic.publish(Subject="Portfolio Deploy Failed", Message="The portfolio was not deployed sucessfully!")
+        raise
 
     return 'Hello from Lambda'
