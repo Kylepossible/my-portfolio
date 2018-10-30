@@ -6,7 +6,7 @@ phases:
         - echo Nothing to do
 artifacts:
   files:
-    - index.HTML
+    - index.html
     - favicon.ico
     - KyleJohnsonResume2018.pdf
     - styles/main.CSS
